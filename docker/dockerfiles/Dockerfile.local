@@ -1,0 +1,27 @@
+FROM python:3.12
+
+# set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+# set work directory
+WORKDIR /test_sft
+
+# install dependences
+COPY ../../requirements.txt /test_sft/requirements.txt
+RUN python3 -m pip install --upgrade pip
+RUN pip3 install -r /test_sft/requirements.txt
+
+# set open port
+EXPOSE 8031
+
+
+
+
+
+
+
+
+
+
+
