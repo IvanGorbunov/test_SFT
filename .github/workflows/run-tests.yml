@@ -62,10 +62,10 @@ jobs:
           pip install pycodestyle
           pycodestyle --statistics --max-line-length=500 .
 
-      - name: Checking hierarchy
-        run: |
-          sudo apt install tree
-          tree -L 3
+#      - name: Checking hierarchy
+#        run: |
+#          sudo apt install tree
+#          tree -L 3
 
       - name: Run Migrations and Tests
         run: |
