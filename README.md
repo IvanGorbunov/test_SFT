@@ -21,7 +21,7 @@ List of endpoints:
    git clone https://github.com/IvanGorbunov/test_SFT.git
    ```
    
-2. Create and fill up a `.env` file according to the template `/src/settings/.env.template`. The `.env` file must be in the directory: `src/config/settings/`.
+2. Create and fill up a `.env` file according to the template `/src/config/settings/.env.template`. The `.env` file must be in the directory: `src/config/settings/`.
    
     ```
     DEBUG=True
