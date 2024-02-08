@@ -72,11 +72,11 @@ jobs:
           echo DEBUG=True >> ./src/config/settings/.env
           echo SECRET_KEY=${{ secrets.SECRET_KEY }} >> ./src/config/settings/.env
           echo STATIC_ROOT=var/www/staticfiles >> ./src/config/settings/.env
-          echo SQL_ENGINE=django.db.backends.postgresql >> ./src/settings/.env
-          echo SQL_USER=postgres >> ./src/settings/.env
-          echo SQL_PASSWORD=postgres >> ./src/settings/.env
-          echo SQL_DATABASE=${{ env.POSTGRES_DB }} >> ./src/settings/.env
-          echo SQL_PORT=${{ env.POSTGRES_PORT }} >> ./src/settings/.env
+          echo SQL_ENGINE=django.db.backends.postgresql >> ./src/config/settings/.env
+          echo SQL_USER=postgres >> ./src/config/settings/.env
+          echo SQL_PASSWORD=postgres >> ./src/config/settings/.env
+          echo SQL_DATABASE=${{ env.POSTGRES_DB }} >> ./src/config/settings/.env
+          echo SQL_PORT=${{ env.POSTGRES_PORT }} >> ./src/config/settings/.env
           echo RUN_IN_DOCKER=False >> ./src/config/settings/.env
           echo DJANGO_SETTINGS_MODULE=config.settings.production >> ./src/config/settings/.env
           echo DJANGO_LOG_LEVEL=INFO >> ./src/config/settings/.env
