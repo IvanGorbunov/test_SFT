@@ -61,8 +61,16 @@ jobs:
         run: |
           pip install pycodestyle
           pycodestyle --statistics --max-line-length=500 .
+
+      - name: Checking hierarchy
+        run: |
+          sudo apt install tree
+          tree -L 3
       - name: Run Migrations and Tests
         run: |
+          wget -O /tmp/chromedriver.zip https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip
+          unzip /tmp/chromedriver.zip chromedriver -d /usr/local/bin/
+          cp /usr/local/bin/chromedriver ./src/functional_tests/chromedriver_109
           touch ./src/config/settings/.env
           echo DEBUG=True >> ./src/config/settings/.env
           echo SECRET_KEY=${{ secrets.SECRET_KEY }} >> ./src/config/settings/.env
@@ -74,5 +82,4 @@ jobs:
           echo SQL_PORT=${{ env.POSTGRES_PORT }} >> ./src/config/settings/.env
           echo SENTRY_DSN=${{ secrets.SENTRY_DSN }} >> ./src/config/settings/.env
           cd src/
-#          python manage.py test apps/ functional_tests
           python manage.py test apps/
