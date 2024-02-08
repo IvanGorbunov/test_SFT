@@ -78,5 +78,7 @@ jobs:
           echo SQL_DATABASE=${{ env.POSTGRES_DB }} >> ./src/config/settings/.env
           echo SQL_PORT=${{ env.POSTGRES_PORT }} >> ./src/config/settings/.env
           echo SENTRY_DSN=${{ secrets.SENTRY_DSN }} >> ./src/config/settings/.env
+          echo DATABASE_URL_IN_DOCKER=False >> ./src/config/settings/.env
+          echo DJANGO_SETTINGS_MODULE=config.settings.local >> ./src/config/settings/.env
           cd src/
           python manage.py test apps/
