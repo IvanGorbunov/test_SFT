@@ -63,4 +63,3 @@ class LoanApplicationProductAdmin(BaseModelAdmin):
         '-loan_application',
         'product',
     )
-

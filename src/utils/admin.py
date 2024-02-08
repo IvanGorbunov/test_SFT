@@ -16,4 +16,3 @@ class BaseModelAdmin(ModelAdmin):
     ordering = (
         'name',
     )
-

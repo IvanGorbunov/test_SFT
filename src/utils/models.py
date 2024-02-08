@@ -7,4 +7,3 @@ class CreateModelMixin(models.Model):
 
     class Meta:
         abstract = True
-
