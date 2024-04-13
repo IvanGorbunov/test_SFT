@@ -2,8 +2,8 @@ from .base import *
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool('DEBUG', False)
-SQL_DEBUG = env.bool('SQL_DEBUG', False)
+DEBUG = env.bool('DEBUG', True)
+SQL_DEBUG = env.bool('SQL_DEBUG', True)
 RUN_IN_DOCKER = env.bool('RUN_IN_DOCKER', False)
 
 

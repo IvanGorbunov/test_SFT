@@ -23,7 +23,7 @@ from .yasg import urlpatterns as doc_url
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('api/', include('apps.store.urls')),
+    path('api/', include('apps.store.urls.urls_api_main')),
 
     path('__debug__/', include('debug_toolbar.urls')),
 ] + doc_url

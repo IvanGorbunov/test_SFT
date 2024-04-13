@@ -1,6 +1,6 @@
 from django.db import models
 
-from utils.models import CreateModelMixin
+from utils.models import CreateModelMixin, DeleteModelMixin
 
 
 class Producer(CreateModelMixin):
@@ -37,8 +37,14 @@ class Product(CreateModelMixin):
         return f'{self.name} (Товар)'
 
 
-class Customer(CreateModelMixin):
+class Customer(DeleteModelMixin, CreateModelMixin):
     name = models.CharField('Наименование', max_length=150, blank=True, null=True)
+
+    enable_flag_1 = models.BooleanField(default=True)
+    enable_flag_2 = models.BooleanField(default=True)
+
+    disable_flag_1 = models.BooleanField(default=False)
+    disable_flag_2 = models.BooleanField(default=False)
 
     class Meta:
         verbose_name = 'Контрагент'
@@ -49,6 +55,14 @@ class Customer(CreateModelMixin):
 
     def __str__(self) -> str:
         return f'{self.name} (Контрагент)'
+
+    @classmethod
+    def get_features_field_names(cls):
+        return [
+            f.name
+            for f in cls._meta.fields
+            if (isinstance(f, models.BooleanField) and f.name.startswith(("enable_", "disable_")))
+        ]
 
 
 class LoanApplication(CreateModelMixin):

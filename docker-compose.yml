@@ -42,7 +42,7 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_DB=test_sft
     ports:
-      - ${POSTGRES_PORT:-5437}:5432
+      - ${POSTGRES_PORT:-15437}:5432
     container_name: test_sft_postgres
     healthcheck:
       test: [ "CMD-SHELL", "pg_isready -U postgres -d test_sft" ]

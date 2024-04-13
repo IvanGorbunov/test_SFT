@@ -28,7 +28,13 @@ class ProductAdmin(BaseModelAdmin):
 
 @admin.register(Customer)
 class CustomerAdmin(BaseModelAdmin):
-    pass
+
+    def get_list_display(self, request):
+        list_display = super().get_list_display(request)
+        return list(list_display) + [
+            field
+            for field in Customer.get_features_field_names()
+        ]
 
 
 @admin.register(LoanApplication)
